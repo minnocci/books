@@ -1,14 +1,14 @@
-const authMock = {
+export const authMock = {
   "status": "success",
   "user_id": "5c5aeaf5608b273a5257043f"
 }
 
-const meMock = {
+export const meMock = {
   "user_id": "5c5aeaf5608b273a5257043f",
   "access_type": "premium"
 }
 
-const categoriesMock = {
+export const categoriesMock = {
   "categories": [
     {
       "id":"5c5ae8a3608b273a5257041e",
@@ -23,7 +23,7 @@ const categoriesMock = {
   ]
 }
 
-const booksMock = {
+export const booksMock = {
   "books": [
     {
       "image_url": "https://images-na.ssl-images-amazon.com/images/I/81qgYQr%2BD%2BL.jpg",
@@ -35,7 +35,7 @@ const booksMock = {
   ]
 }
 
-const bookMock = {
+export const bookMock = {
   "image_url": "https://images-na.ssl-images-amazon.com/images/I/81qgYQr%2BD%2BL.jpg",
   "id": "5c5ae9fc608b273a52570422",
   "category_id": "5c5ae8a3608b273a5257041e",
@@ -43,7 +43,7 @@ const bookMock = {
   "content": "At libero molestiae ipsa dolores. Est et sint. Quis minus ut et reprehenderit. Sed fugiat totam aspernatur ex molestiae numquam. Voluptatem quos sequi fugit."
 }
 
-const categoryMock = {
+export const categoryMock = {
   "id": "5c5ae8a3608b273a5257041e",
   "title": "Productivity",
   "book_ids": [
@@ -102,10 +102,20 @@ export async function doAuthMock() {
   ).then(() => (
     Promise.resolve(
       _meMock()
-    ).then(({ user_id, access_type }) => (
-      { 'userId': user_id, 'accessType': access_type }
-    ))
+      ).then(({ user_id, access_type }) => {
+        // TODO add session storage
+        return { 'userId': user_id, 'accessType': access_type }
+      })
   ))
+}
+
+export async function logoutMock(userId) {
+  // TODO remove session storage
+  return (userId)
+}
+
+export async function getInitialDataMock() {
+  // TODO check session storage
 }
 
 export async function getCategoriesMock() {
