@@ -55,42 +55,36 @@ export const categoryMock = {
 }
 
 function _authMock() {
-  console.log("using mock auth")
   return new Promise((res, rej) => {
     setTimeout(() => res({...authMock}), 500)
   })
 }
 
 function _meMock() {
-  console.log("using mock me")
   return new Promise((res, rej) => {
     setTimeout(() => res({...meMock}), 500)
   })
 }
 
 function _categoriesMock() {
-  console.log("using mock categories")
   return new Promise((res, rej) => {
     setTimeout(() => res({...categoriesMock}), 500)
   })
 }
 
 function _booksMock() {
-  console.log("using mock books")
   return new Promise((res, rej) => {
     setTimeout(() => res({...booksMock}), 500)
   })
 }
 
 function _bookMock() {
-  console.log("using mock book")
   return new Promise((res, rej) => {
     setTimeout(() => res({...bookMock}), 500)
   })
 }
 
 function _categoryMock() {
-  console.log("using mock category")
   return new Promise((res, rej) => {
     setTimeout(() => res(categoryMock), 500)
   })
@@ -103,19 +97,24 @@ export async function doAuthMock() {
     Promise.resolve(
       _meMock()
       ).then(({ user_id, access_type }) => {
-        // TODO add session storage
+        sessionStorage.setItem('userId', user_id)
+        sessionStorage.setItem('accessType', access_type)
         return { 'userId': user_id, 'accessType': access_type }
       })
   ))
 }
 
 export async function logoutMock(userId) {
-  // TODO remove session storage
+  sessionStorage.removeItem('userId')
+  sessionStorage.removeItem('accessType')
   return (userId)
 }
 
 export async function getInitialDataMock() {
-  // TODO check session storage
+  return (
+    sessionStorage.userId !== undefined
+    && sessionStorage.accessType !== undefined
+  )
 }
 
 export async function getCategoriesMock() {

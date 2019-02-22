@@ -1,5 +1,6 @@
 import {
   doAuthMock,
+  logoutMock,
   getInitialDataMock,
   getCategoriesMock,
   getBooksMock,
@@ -14,6 +15,10 @@ import {
 
 export async function auth() {
   return doAuthMock()
+}
+
+export async function logout(userId) {
+  return logoutMock(userId)
 }
 
 export async function getInitialData() {
