@@ -1,4 +1,4 @@
-export const authMock = {
+const authMock = {
   "status": "success",
   "user_id": "5c5aeaf5608b273a5257043f"
 }
