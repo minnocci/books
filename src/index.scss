@@ -32,3 +32,19 @@ main {
 .flexGrow {
   flex-grow: 1
 }
+
+@mixin btn() {
+  text-transform: none !important;
+  font-weight: bold !important;
+  letter-spacing: -0.5px !important;
+}
+
+.btn {
+  @include btn();
+}
+
+.btnLogin {
+  width: 200px;
+  left: calc(50vw - 100px);
+  top: calc(50vh - 100px);
+}
