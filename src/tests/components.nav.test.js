@@ -64,7 +64,7 @@ describe('Nav component', () => {
         }
       }
       const componentWithUser = shallow(<Nav {...props} />)
-      expect(componentWithUser.find('.btnLogout').props().children).toBe('Log out')
+      expect(componentWithUser.find('.btnLogout').render().text()).toBe('Log out')
     })
 
   })

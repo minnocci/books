@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid'
 
 import Nav from './Nav'
 import Categories from './Categories'
+import Books from './Books'
 
 class Discovery extends Component {
 
@@ -19,7 +20,7 @@ class Discovery extends Component {
               <Categories />
             </Grid>
             <Grid item xs={12} sm={8} md={9} lg={10}>
-              Books
+              <Books />
             </Grid>
           </Grid>
         </main>
