@@ -12,3 +12,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+main {
+  margin: 24px
+}
+
+.loader {
+  position: absolute;
+  left: calc(50vw - 20px);
+  top: calc(50vh - 20px);
+}
+
+.appbar {
+  .logo {
+    width: 134px;
+  }
+}
+
+.flexGrow {
+  flex-grow: 1
+}
