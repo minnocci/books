@@ -26,7 +26,7 @@ export const categoriesMock = {
 export const booksMock = {
   "books": [
     {
-      "image_url": "https://images-na.ssl-images-amazon.com/images/I/81qgYQr%2BD%2BL.jpg",
+      "image_url": "https://images.blinkist.com/images/books/5c570ea26cee070008d6c880/3_4/640.jpg",
       "id": "5c5ae9fc608b273a52570422",
       "category_id": "5c5ae8a3608b273a5257041e",
       "title": "Audax ut aer explicabo",
@@ -36,7 +36,7 @@ export const booksMock = {
 }
 
 export const bookMock = {
-  "image_url": "https://images-na.ssl-images-amazon.com/images/I/81qgYQr%2BD%2BL.jpg",
+  "image_url": "https://images.blinkist.com/images/books/5c570ea26cee070008d6c880/3_4/640.jpg",
   "id": "5c5ae9fc608b273a52570422",
   "category_id": "5c5ae8a3608b273a5257041e",
   "title": "Audax ut aer explicabo",

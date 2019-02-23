@@ -35,7 +35,7 @@ describe('Auth component', () => {
   })
 
   it('should render a button with the text Log in', () => {
-    expect(component.find('.btnLogin').props().children).toBe('Log in')
+    expect(component.find('.btnLogin').render().text()).toBe('Log in')
   })
 
 })
