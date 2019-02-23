@@ -32,7 +32,7 @@ class App extends Component {
                   exact component={Auth} />
                 <Route path='/discovery'
                   exact component={Discovery} />
-                <Route path='/book'
+                <Route path='/book/:bookId'
                   exact component={Book} />
                 <Redirect to='/' />
               </Switch>

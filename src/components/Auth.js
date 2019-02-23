@@ -22,9 +22,10 @@ export class Auth extends Component {
 
   render() {
 
+    const { isLoading } = this.state
     const { user } = this.props
 
-    if (user && user.userId) {
+    if (!!user && !!user.userId) {
       return <Redirect to='/discovery' />
     }
 
@@ -37,7 +38,7 @@ export class Auth extends Component {
             size='large'
             color='primary'
             className='btn btnLogin'
-            disabled={(user && !!user.userId) || this.state.isLoading}
+            disabled={(user && !!user.userId) || isLoading}
             onClick={(ev) => this.handleLoginClick(ev)}>
             Log in
           </Button>

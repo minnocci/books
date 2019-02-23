@@ -30,7 +30,7 @@ export const booksMock = {
       "id": "5c5ae9fc608b273a52570422",
       "category_id": "5c5ae8a3608b273a5257041e",
       "title": "Audax ut aer explicabo",
-      "content": "At libero molestiae ipsa dolores. Est et sint. Quis minus ut et reprehenderit. Sed fugiat totam aspernatur ex molestiae numquam."
+      "content": "At libero molestiae ipsa dolores. Est et sint. Quis minus ut et reprehenderit. Sed fugiat totam aspernatur ex molestiae numquam. Voluptatem quos sequi fugit."
     }
   ]
 }

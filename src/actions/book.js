@@ -1,5 +1,6 @@
 import {
-  getBooks
+  getBooks,
+  getBook
 } from '../utils/api'
 
 export const RECEIVE_BOOKS = 'RECEIVE_BOOKS'
@@ -35,5 +36,16 @@ export function handleReceiveBooks () {
         console.warn('Error in handleReceiveBooks: ', error)
       })
       .then((books) => dispatch(receiveBooks(books)))
+  }
+}
+
+// async action creator for receiveBook
+export function handleReceiveBook ({ id }) {
+  return (dispatch) => {
+    return getBook({ id })
+      .catch ((error) => {
+        console.warn('Error in handleReceiveBook: ', error)
+      })
+      .then((book) => dispatch(receiveBook(book)))
   }
 }
