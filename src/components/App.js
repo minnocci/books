@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { handleInitialData } from '../actions/shared'
 
 class App extends Component {
+
+  componentDidMount() {
+    const { dispatch } = this.props
+    dispatch(handleInitialData())
+  }
 
   render() {
 
     return (
       <div>
-        Hello world!
+        { 
+          this.props.loading === true
+          ? <div>Loading</div>
+          : <div>Loaded</div>
+        }
       </div>
     )
 
@@ -14,4 +26,11 @@ class App extends Component {
 
 }
 
-export default App
+function mapStateToProps ({ user }) {
+  return {
+    loading: !user,
+    user
+  }
+}
+
+export default connect(mapStateToProps)(App)
