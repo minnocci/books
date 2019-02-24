@@ -1,42 +1,48 @@
 import {
   doAuthMock,
+  doAuth,
   logoutMock,
+  doLogout,
   getInitialDataMock,
+  doGetInitialData,
   getCategoriesMock,
+  doGetCategories,
   getBooksMock,
+  doGetBooks,
   getBookMock,
-  getCategoryMock
+  doGetBook,
+  getCategoryMock,
+  doGetCategory
 } from './_DATA.js'
 
-// const useMocks = true
+const useMocks = false
 // true for using mocks
-// false for using real API
-// TODO handle later below
+// false for using books API
 
 export async function auth() {
-  return doAuthMock()
+  return useMocks ? doAuthMock() : doAuth()
 }
 
 export async function logout(userId) {
-  return logoutMock(userId)
+  return useMocks ? logoutMock(userId) : doLogout(userId)
 }
 
 export async function getInitialData() {
-  return getInitialDataMock()
+  return useMocks ? getInitialDataMock() : doGetInitialData()
 }
 
 export async function getCategories() {
-  return getCategoriesMock()
+  return useMocks ? getCategoriesMock() : doGetCategories()
 }
 
 export async function getBooks() {
-  return getBooksMock()
+  return useMocks ? getBooksMock() : doGetBooks()
 }
 
 export async function getBook({ id }) {
-  return getBookMock()
+  return useMocks ? getBookMock() : doGetBook(id)
 }
 
 export async function getCategory({ id }) {
-  return getCategoryMock()
+  return useMocks ? getCategoryMock() : doGetCategory(id)
 }

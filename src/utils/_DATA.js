@@ -148,3 +148,100 @@ export async function getCategoryMock() {
     category
   ))
 }
+
+
+// Using API for Books SPA
+
+const booksApi = 'https://ancient-springs-73658.herokuapp.com'
+
+const headers = new Headers({
+})
+
+const _auth = () =>
+  fetch(`${booksApi}/auth`, { method: 'POST', ...headers })
+    .then(res => res.json())
+    .catch(error => console.error('Error: ', error))
+
+const _me = () =>
+  fetch(`${booksApi}/me`, { ...headers })
+    .then(res => res.json())
+    .catch(error => console.error('Error: ', error))
+
+const _categories = () =>
+  fetch(`${booksApi}/categories`, { ...headers })
+    .then(res => res.json())
+    .catch(error => console.error('Error: ', error))
+
+const _books = () =>
+  fetch(`${booksApi}/books`, { ...headers })
+    .then(res => res.json())
+    .catch(error => console.error('Error: ', error))
+
+const _book = (bookId) =>
+  fetch(`${booksApi}/book/${bookId}`, { ...headers })
+    .then(res => res.json())
+    .catch(error => console.error('Error: ', error))
+
+const _category = (categoryId) =>
+  fetch(`${booksApi}/category/${categoryId}`, { ...headers })
+    .then(res => res.json())
+    .catch(error => console.error('Error: ', error))
+
+export async function doAuth() {
+  return Promise.resolve(
+    _auth()
+  ).then(() => (
+    Promise.resolve(
+      _me()
+      ).then(({ user_id, access_type }) => {
+        sessionStorage.setItem('userId', user_id)
+        sessionStorage.setItem('accessType', access_type)
+        return { 'userId': user_id, 'accessType': access_type }
+      })
+  ))
+}
+
+export async function doLogout(userId) {
+  sessionStorage.removeItem('userId')
+  sessionStorage.removeItem('accessType')
+  return (userId)
+}
+
+export async function doGetInitialData() {
+  return (
+    sessionStorage.userId !== undefined
+    && sessionStorage.accessType !== undefined
+  )
+}
+
+export async function doGetCategories() {
+  return Promise.resolve(
+    _categories()
+  ).then((categories) => (
+    categories
+  ))
+}
+
+export async function doGetBooks() {
+  return Promise.resolve(
+    _books()
+  ).then((books) => (
+    books
+  ))
+}
+
+export async function doGetBook(bookId) {
+  return Promise.resolve(
+    _book(bookId)
+  ).then((book) => (
+    book
+  ))
+}
+
+export async function doGetCategory(categoryId) {
+  return Promise.resolve(
+    _category(categoryId)
+  ).then((category) => (
+    category
+  ))
+}
