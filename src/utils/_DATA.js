@@ -178,12 +178,12 @@ const _books = () =>
     .catch(error => console.error('Error: ', error))
 
 const _book = (bookId) =>
-  fetch(`${booksApi}/book/${bookId}`, { ...headers })
+  fetch(`${booksApi}/books/${bookId}`, { ...headers })
     .then(res => res.json())
     .catch(error => console.error('Error: ', error))
 
 const _category = (categoryId) =>
-  fetch(`${booksApi}/category/${categoryId}`, { ...headers })
+  fetch(`${booksApi}/categories/${categoryId}`, { ...headers })
     .then(res => res.json())
     .catch(error => console.error('Error: ', error))
 
