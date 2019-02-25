@@ -142,6 +142,8 @@ Your app is ready to be deployed!
 }
 ```
 
+# Other dev notes
+
 ## Mocks / API mode
 
 Switching between using mocks or using the books API can be done in `/utils/api.js` by changing the following constant:
@@ -163,3 +165,40 @@ The mock data and the API calls can be changed in `/utils/_DATA.js`
 ## Changing the theme colors
 
 The UI colors set fot the material theme can be changed in `/utils/themes.js`
+
+# Demo
+
+Demo is available at http://books.herokuapp.com
+
+# How can this go further?
+
+### Page reloads
+In terms of page reloading, the user state has been managed so far by using a simple session storage mechanism: this means, an user remains logged in as long as the window is not closed or the user logs out explicitly. A page reload dispatches the async action `handleInitialData()` which leads to check if the session storage contains an user entry and the outcome is handled accordingly. I decided session over local storage because I wanted a quicker way to remove the stored data.
+Regarding other slices of the state, the SPA uses already React Router, which enhances human readable / SEO friendly URLs, so far for `/discovery` and `/book/:bookId`. In case of the first URL, reload can change so far the outcome (active category and filtered results displayed) but, in case of the second (book page), this is already handled using React lifecycle methods (componentDidMount, componentWillReceiveProps) and can be checked in `/components/Book.js`.
+In general, to allow the state to persist in case of refresh or direct url typing, there are also other libraries like Redux Persist [https://github.com/rt2zz/redux-persist] which are local storage based.
+
+### Checkout flows
+To add a checkout flowat least a new slice should be added to the store, i.e.:
+
+```
+{
+  ...
+  checkout: {
+    items: [
+      {id, quantity},
+      {id, quantity},
+      ...
+    ],
+    ...
+  }
+  ...
+}
+```
+
+Anyway, for a checkout flow, is a very good idea to keep track of the session on the server side :)
+
+### Search feature
+This could be easily done on the client side with the architecture given. Of course, at least one search endpoint and the corresponding actions would be required but in terms of the store nothing would need to change in principle. The `book` slice in its property `books` would store the search results and could be displayed in the Books component. If reusing the Discovery component, probably might be a good idea to replace the Categories component when coming from search and enhancing some sort of filtering instead.
+
+### Audio player
+To implement an audio player to be able to i.e. listen to the book in the Book page for logged in users, the book data model should include a new property pointing to the url where the streaming file is available. For the UI, a matching solution could be to use cards with UI controls provided in Material-UI [https://material-ui.com/demos/cards/#ui-controls].
