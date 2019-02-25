@@ -28,8 +28,13 @@ export function handleLoginUser () {
       .catch ((error) => {
         console.warn('Error in handleLoginUser: ', error)
       })
-      .then(({ userId, accessType }) => {
-        dispatch(loginUser({ userId, accessType }))
+      .then((res) => {
+        if (res !== undefined) {
+          const { userId, accessType } = res
+          !!userId
+          && !!accessType
+          && dispatch(loginUser({ userId, accessType }))
+        }
       })
   }
 }

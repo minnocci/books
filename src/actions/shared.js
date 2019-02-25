@@ -12,7 +12,7 @@ export function handleInitialData () {
   return (dispatch) => {
     return getInitialData()
     .then((session) => {
-      if (session) dispatch(handleLoginUser())
+      !!session && dispatch(handleLoginUser())
     })
   }
 }
@@ -25,8 +25,8 @@ export function handleFilterCategory ({ categoryId }) {
         console.warn('Error in handleFilterCategory: ', error)
       })
       .then((category) => {
-        dispatch(filterCategory(category))
-        dispatch(filterBooks(category.book_ids))
+        !!category && dispatch(filterCategory(category))
+        !!category && dispatch(filterBooks(category.book_ids))
       })
   }
 }

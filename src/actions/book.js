@@ -35,7 +35,7 @@ export function handleReceiveBooks () {
       .catch ((error) => {
         console.warn('Error in handleReceiveBooks: ', error)
       })
-      .then((books) => dispatch(receiveBooks(books)))
+      .then((books) => !!books && dispatch(receiveBooks(books)))
   }
 }
 
@@ -46,6 +46,6 @@ export function handleReceiveBook ({ id }) {
       .catch ((error) => {
         console.warn('Error in handleReceiveBook: ', error)
       })
-      .then((book) => dispatch(receiveBook(book)))
+      .then((book) => !!book && dispatch(receiveBook(book)))
   }
 }

@@ -26,6 +26,6 @@ export function handleReceiveCategories () {
       .catch ((error) => {
         console.warn('Error in handleReceiveCategories: ', error)
       })
-      .then((categories) => dispatch(receiveCategories(categories)))
+      .then((categories) => !!categories && dispatch(receiveCategories(categories)))
   }
 }
