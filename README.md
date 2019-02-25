@@ -51,7 +51,7 @@ The build is minified and the filenames include the hashes.
 - Book page: displays the book's content to the user. Users with free access can only see the first half of the content, with the second half covered with a sign up CTA. Users with premium access should be able to read the entire content. 
 
 ## Additional features
-- Logged user storage: logged user is stored during the session using the browser session storage, in order not facilitate the use cases specified.
+- Logged user storage: logged user is stored during the session using the browser session storage, in order to facilitate the simulation of the use cases specified.
 - Log out: when an user is logged in, can log out by clicking the button on the navigation bar, this is related to the logged user storage.
 
 
@@ -141,7 +141,11 @@ The build is minified and the filenames include the hashes.
 }
 ```
 
-# Other dev notes
+# Tests
+
+Tests are included under the `/tests` folder, covering some unit tests for actions, components and reducers. `npm test` launches the test runner.
+
+# Utils
 
 ## Mocks / API mode
 
@@ -153,11 +157,7 @@ const useMocks = false
 // false for using books API
 ```
 
-## Tests
-
-Tests are included under the `/tests` folder, covering some unit tests for actions, components and reducers. `npm test` launches the test runner.
-
-## Changing mock data and the API calls
+## Mock data and handling API requests
 
 The mock data and the API calls can be changed in `/utils/_DATA.js`
 
