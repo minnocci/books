@@ -43,8 +43,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The build is minified and the filenames include the hashes.
 
 ## Features
 - Home page: allows users to log in to the application. This is the default page for all website visitors and redirects already logged in users to the discovery page.
@@ -168,7 +167,7 @@ The UI colors set fot the material theme can be changed in `/utils/themes.js`
 
 # Demo
 
-Demo is available at http://books.herokuapp.com
+Demo is available at http://books.herokuapp.com (dev mode)
 
 # How can this go further?
 
