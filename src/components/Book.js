@@ -26,7 +26,7 @@ export class Book extends Component {
       this.setState({ bookEl })
     } else {
       // coming from direct url or refresh
-      dispatch(handleReceiveBook({ bookId }))
+      dispatch(handleReceiveBook({ id: bookId }))
     }
   }
 

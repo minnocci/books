@@ -20,7 +20,7 @@ export function handleInitialData () {
 // async action creator for handleFilterCategory
 export function handleFilterCategory ({ categoryId }) {
   return (dispatch) => {
-    return getCategory({ categoryId })
+    return getCategory({ id: categoryId })
       .catch ((error) => {
         console.warn('Error in handleFilterCategory: ', error)
       })
