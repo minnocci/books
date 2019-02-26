@@ -41,7 +41,6 @@ export function handleReceiveBooks () {
 
 // async action creator for receiveBook
 export function handleReceiveBook ({ id }) {
-  console.log(id)
   return (dispatch) => {
     return getBook({ id })
       .catch ((error) => {
